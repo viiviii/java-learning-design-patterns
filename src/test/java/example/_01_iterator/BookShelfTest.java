@@ -1,6 +1,5 @@
 package example._01_iterator;
 
-import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -8,33 +7,53 @@ import static org.assertj.core.api.Assertions.assertThatIndexOutOfBoundsExceptio
 
 class BookShelfTest {
 
+    private static final Book JAVA_BOOK = new Book("java");
+    private static final Book PYTHON_BOOK = new Book("python");
+
     @Test
     void maxLength() {
         //given
         var bookShelf = new BookShelf(0);
 
-        //when
-        ThrowingCallable appendOverMaxLength = () -> {
-            bookShelf.appendBook(book());
-        };
+        //then
+        assertThatIndexOutOfBoundsException()
+                .isThrownBy(() -> bookShelf.appendBook(JAVA_BOOK));
+    }
+
+    @Test
+    void getLength() {
+        //given
+        var bookShelf = new BookShelf(10);
 
         //then
-        assertThatIndexOutOfBoundsException().isThrownBy(appendOverMaxLength);
+        assertThat(bookShelf.getLength()).isZero();
     }
 
     @Test
     void appendBook() {
         //given
-        var lengthOfBooks = 3;
-        var bookShelf = new BookShelf(lengthOfBooks);
+        var bookShelf = new BookShelf(10);
 
         //when
-        bookShelf.appendBook(book());
-        bookShelf.appendBook(book());
-        bookShelf.appendBook(book());
+        bookShelf.appendBook(JAVA_BOOK);
 
         //then
-        assertThat(bookShelf.getLength()).isEqualTo(lengthOfBooks);
+        assertThat(bookShelf.getLength()).isOne();
+    }
+
+    @Test
+    void getBookAt() {
+        //given
+        var bookShelf = new BookShelf(10);
+
+        bookShelf.appendBook(JAVA_BOOK);
+        bookShelf.appendBook(PYTHON_BOOK);
+
+        //when
+        var lastBook = bookShelf.getBookAt(1);
+
+        //then
+        assertThat(lastBook).isEqualTo(PYTHON_BOOK);
     }
 
     @Test
@@ -47,9 +66,5 @@ class BookShelfTest {
 
         //then
         assertThat(iterator).isNotNull();
-    }
-
-    private Book book() {
-        return new Book("test book");
     }
 }

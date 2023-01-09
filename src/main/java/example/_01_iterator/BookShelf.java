@@ -24,6 +24,10 @@ class BookShelf implements Iterable<Book> {
         return length;
     }
 
+    public Book getBookAt(int index) {
+        return books[index];
+    }
+
     @Override
     public Iterator<Book> iterator() {
         return Arrays.stream(books).iterator();
