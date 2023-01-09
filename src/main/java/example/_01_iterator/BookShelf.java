@@ -12,6 +12,9 @@ class BookShelf implements Iterable<Book> {
         this.books = new Book[maxLength];
     }
 
+    // Iterator next()가 하는 일
+    // - 집합체 요소를 1개 반환
+    // - 내부 상태를 다음으로 진행시킴 (숨겨진 역할)
     public void appendBook(Book book) {
         books[getLength()] = book;
         length += 1;
