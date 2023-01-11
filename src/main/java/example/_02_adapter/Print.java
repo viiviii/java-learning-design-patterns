@@ -1,7 +1,7 @@
 package example._02_adapter;
 
-interface Print {
-    void printWeak();
+abstract class Print {
+    abstract void printWeak();
 
-    void printStrong();
+    abstract void printStrong();
 }
