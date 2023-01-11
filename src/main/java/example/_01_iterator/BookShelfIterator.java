@@ -18,13 +18,13 @@ class BookShelfIterator implements Iterator<Book> {
             throw new NoSuchElementException();
         }
 
-        var current = bookShelf.getBookAt(index);
+        var book = bookShelf.getBookAt(index);
         index += 1;
-        return current;
+        return book;
     }
 
     @Override
     public boolean hasNext() {
-        return bookShelf.getLength() != index;
+        return index < bookShelf.getLength();
     }
 }
