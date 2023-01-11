@@ -3,7 +3,7 @@ package example._01_iterator;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIndexOutOfBoundsException;
+import static org.assertj.core.api.Assertions.assertThatNoException;
 
 class BookShelfTest {
 
@@ -11,12 +11,12 @@ class BookShelfTest {
     private static final Book PYTHON_BOOK = new Book("python");
 
     @Test
-    void maxLength() {
+    void maxSize() {
         //given
         var bookShelf = new BookShelf(0);
 
         //then
-        assertThatIndexOutOfBoundsException()
+        assertThatNoException()
                 .isThrownBy(() -> bookShelf.appendBook(JAVA_BOOK));
     }
 
