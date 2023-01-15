@@ -1,4 +1,4 @@
-package example._04_factory_method;
+package example._04_factory_method.idcard;
 
 import org.junit.jupiter.api.Test;
 

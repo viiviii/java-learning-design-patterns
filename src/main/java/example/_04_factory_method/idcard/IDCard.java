@@ -1,15 +1,17 @@
-package example._04_factory_method;
+package example._04_factory_method.idcard;
 
-class IDCard extends Product {
+import example._04_factory_method.framework.Product;
+
+public class IDCard extends Product {
     private final String owner;
 
-    public IDCard(String owner) {
+    IDCard(String owner) {
         System.out.println(owner + "의 카드를 만듭니다.");
         this.owner = owner;
     }
 
     @Override
-    void use() {
+    public void use() {
         System.out.println(this + "을 사용합니다.");
     }
 

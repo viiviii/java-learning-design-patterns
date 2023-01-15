@@ -1,5 +1,9 @@
 package example._04_factory_method;
 
+import example._04_factory_method.framework.Factory;
+import example._04_factory_method.framework.Product;
+import example._04_factory_method.idcard.IDCardFactory;
+
 class Main {
     public static void main(String[] args) {
         Factory factory = new IDCardFactory();
