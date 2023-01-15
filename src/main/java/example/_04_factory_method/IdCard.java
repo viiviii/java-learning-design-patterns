@@ -4,6 +4,7 @@ class IdCard extends Product {
     private final String name;
 
     public IdCard(String name) {
+        System.out.println(name + "의 카드를 만듭니다.");
         this.name = name;
     }
 
