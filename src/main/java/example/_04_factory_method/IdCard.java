@@ -9,6 +9,11 @@ class IdCard extends Product {
 
     @Override
     void use() {
-        System.out.println("[IDCard:" + name + "]을 사용합니다.");
+        System.out.println(this + "을 사용합니다.");
+    }
+
+    @Override
+    public String toString() {
+        return "[IDCard:" + name + "]";
     }
 }

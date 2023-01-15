@@ -9,7 +9,6 @@ class IDCardFactory extends Factory {
 
     @Override
     void registerProduct(Product product) {
-        // todo: product toString
-        System.out.println("[IDCard:" + product + "]을 등록했습니다.");
+        System.out.println(product + "을 등록했습니다.");
     }
 }
