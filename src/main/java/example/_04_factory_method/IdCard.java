@@ -1,11 +1,11 @@
 package example._04_factory_method;
 
 class IdCard extends Product {
-    private final String name;
+    private final String owner;
 
-    public IdCard(String name) {
-        System.out.println(name + "의 카드를 만듭니다.");
-        this.name = name;
+    public IdCard(String owner) {
+        System.out.println(owner + "의 카드를 만듭니다.");
+        this.owner = owner;
     }
 
     @Override
@@ -15,6 +15,6 @@ class IdCard extends Product {
 
     @Override
     public String toString() {
-        return "[IDCard:" + name + "]";
+        return "[IDCard:" + owner + "]";
     }
 }
