@@ -3,7 +3,7 @@ package example._04_factory_method;
 class IDCardFactory extends Factory {
     @Override
     Product createProduct(String owner) {
-        return new IdCard(owner);
+        return new IDCard(owner);
     }
 
     @Override
