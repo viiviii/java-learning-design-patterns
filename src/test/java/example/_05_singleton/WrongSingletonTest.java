@@ -40,7 +40,7 @@ class WrongSingletonTest {
             System.out.println("인스턴스를 생성했습니다.");
         }
 
-        static WrongSingleton getInstance() {
+        static synchronized WrongSingleton getInstance() {
             if (instance == null) {
                 instance = new WrongSingleton();
             }
