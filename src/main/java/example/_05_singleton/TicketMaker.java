@@ -1,7 +1,7 @@
 package example._05_singleton;
 
-class TicketMaker {
-    private static final TicketMaker instance = new TicketMaker();
+final class TicketMaker {
+    private static final TicketMaker INSTANCE = new TicketMaker();
 
     private int ticket = 1000;
 
@@ -9,7 +9,7 @@ class TicketMaker {
     }
 
     public static TicketMaker getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public synchronized int getNextTicketNumber() {
