@@ -20,8 +20,7 @@ class MainTest extends MainMethodTest {
         var slashBox = """
                 ///////////////
                 /Hello, world./
-                ///////////////
-                """;
+                ///////////////""";
 
         //when
         runMain();
