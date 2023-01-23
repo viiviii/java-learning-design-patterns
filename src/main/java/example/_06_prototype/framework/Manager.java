@@ -12,6 +12,6 @@ public class Manager {
 
     public Product create(String name) {
         final var product = products.get(name);
-        return product.copy(); // todo: ??? 왜 복사할까
+        return product.clone(); // todo: ??? 왜 복사할까
     }
 }

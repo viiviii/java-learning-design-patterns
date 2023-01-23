@@ -31,11 +31,6 @@ final class MessageBox implements Product {
     }
 
     @Override
-    public Product copy() {
-        return clone();
-    }
-
-    @Override
     public MessageBox clone() {
         try {
             return (MessageBox) super.clone();

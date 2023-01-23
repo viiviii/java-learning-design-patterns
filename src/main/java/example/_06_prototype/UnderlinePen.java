@@ -2,7 +2,9 @@ package example._06_prototype;
 
 import example._06_prototype.framework.Product;
 
-class UnderlinePen implements Product {
+import java.util.Objects;
+
+final class UnderlinePen implements Product {
 
     private final char c;
 
@@ -23,7 +25,24 @@ class UnderlinePen implements Product {
     }
 
     @Override
-    public Product copy() {
-        return new UnderlinePen(c);
+    public UnderlinePen clone() {
+        try {
+            return (UnderlinePen) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new InternalError(e);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UnderlinePen that = (UnderlinePen) o;
+        return c == that.c;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(c);
     }
 }
