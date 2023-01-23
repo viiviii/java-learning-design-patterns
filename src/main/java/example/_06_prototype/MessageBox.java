@@ -30,6 +30,17 @@ class MessageBox implements Product {
 
     @Override
     public Product copy() {
-        return new MessageBox(c);
+        return clone();
+    }
+
+    @Override
+    protected Product clone() {
+        Product product = null;
+        try {
+            product = (Product) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return product;
     }
 }
