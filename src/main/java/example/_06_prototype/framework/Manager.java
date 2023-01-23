@@ -1,9 +1,9 @@
-package example._06_prototype;
+package example._06_prototype.framework;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class Manager {
+public class Manager {
     private Map<String, Product> products = new HashMap<>();
 
     public void register(String name, Product product) {

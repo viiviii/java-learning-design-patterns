@@ -1,5 +1,7 @@
 package example._06_prototype;
 
+import example._06_prototype.framework.Product;
+
 class MessageBox implements Product {
 
     private final char c;
