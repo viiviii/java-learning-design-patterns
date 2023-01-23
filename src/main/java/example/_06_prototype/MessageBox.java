@@ -2,7 +2,9 @@ package example._06_prototype;
 
 import example._06_prototype.framework.Product;
 
-class MessageBox implements Product {
+import java.util.Objects;
+
+final class MessageBox implements Product {
 
     private final char c;
 
@@ -34,13 +36,24 @@ class MessageBox implements Product {
     }
 
     @Override
-    protected Product clone() {
-        Product product = null;
+    public MessageBox clone() {
         try {
-            product = (Product) super.clone();
+            return (MessageBox) super.clone();
         } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+            throw new InternalError(e);
         }
-        return product;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MessageBox that = (MessageBox) o;
+        return c == that.c;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(c);
     }
 }
