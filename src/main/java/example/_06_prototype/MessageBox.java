@@ -12,6 +12,10 @@ final class MessageBox implements Product {
         this.c = c;
     }
 
+    private MessageBox(MessageBox prototype) {
+        this.c = prototype.c;
+    }
+
     @Override
     public void use(String s) {
         final var line = surround(repeat(s.length()));
@@ -31,12 +35,8 @@ final class MessageBox implements Product {
     }
 
     @Override
-    public MessageBox clone() {
-        try {
-            return (MessageBox) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new InternalError(e);
-        }
+    public Product copy() {
+        return new MessageBox(this);
     }
 
     @Override

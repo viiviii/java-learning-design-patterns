@@ -12,6 +12,10 @@ final class UnderlinePen implements Product {
         this.c = c;
     }
 
+    private UnderlinePen(UnderlinePen prototype) {
+        this.c = prototype.c;
+    }
+
     @Override
     public void use(String s) {
         final var underline = repeat(s.length());
@@ -25,12 +29,8 @@ final class UnderlinePen implements Product {
     }
 
     @Override
-    public UnderlinePen clone() {
-        try {
-            return (UnderlinePen) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new InternalError(e);
-        }
+    public Product copy() {
+        return new UnderlinePen(this);
     }
 
     @Override
