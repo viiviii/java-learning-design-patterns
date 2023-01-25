@@ -10,14 +10,17 @@ class Main {
             TextBuilder textbuilder = new TextBuilder();
             Director director = new Director(textbuilder);
             director.construct();
+
             String result = textbuilder.getTextResult();
             System.out.println(result);
         } else if (args[0].equals("html")) {
             HTMLBuilder htmlbuilder = new HTMLBuilder();
             Director director = new Director(htmlbuilder);
             director.construct();
-            String filename = htmlbuilder.getHTMLResult();
-            System.out.println("HTML파일 " + filename + "이 작성되었습니다.");
+
+            // 파일 대신 text 방식과 동일하게 문자열을 반환하도록 예제를 변경함
+            String result = htmlbuilder.getHTMLResult();
+            System.out.println(result);
         } else {
             outputUsage();
             System.exit(0);
