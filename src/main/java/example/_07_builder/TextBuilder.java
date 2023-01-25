@@ -2,42 +2,43 @@ package example._07_builder;
 
 class TextBuilder extends Builder {
 
-    private static final String OPENING_CLOSING_LINE = "==============================";
+    private static final String OPENING_CLOSING_LINE = "==============================\n";
+
+    private final StringBuilder sb = new StringBuilder();
+
 
     public TextBuilder() {
-        appendWithNewLine(OPENING_CLOSING_LINE);
+        sb.append(OPENING_CLOSING_LINE);
     }
 
     @Override
     public Builder makeTitle(String title) {
-        append("[").append(title).appendWithNewLine("]");
-        appendNewLine();
+        sb.append("[").append(title).append("]\n\n");
         return this;
 
     }
 
     @Override
     public Builder makeString(String str) {
-        append("■").appendWithNewLine(str);
-        appendNewLine();
+        sb.append("■").append(str).append("\n\n");
         return this;
     }
 
     @Override
     public Builder makeItems(String... items) {
         for (String item : items) {
-            append("- ").appendWithNewLine(item);
+            sb.append("- ").append(item).append("\n");
         }
-        appendNewLine();
+        sb.append("\n");
         return this;
     }
 
     @Override
     public void close() {
-        appendWithNewLine(OPENING_CLOSING_LINE);
+        sb.append(OPENING_CLOSING_LINE);
     }
 
     public String getTextResult() {
-        return getResult();
+        return sb.toString();
     }
 }

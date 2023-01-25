@@ -2,44 +2,43 @@ package example._07_builder;
 
 class HTMLBuilder extends Builder {
 
+    private final StringBuilder sb = new StringBuilder();
+
     public HTMLBuilder() {
-        appendWithNewLine("<!DOCTYPE html>");
-        appendWithNewLine("<html>");
+        sb.append("<!DOCTYPE html>\n");
+        sb.append("<html>\n");
     }
 
     @Override
     public Builder makeTitle(String title) {
-        append("<head><title>").append(title).appendWithNewLine("</title></head>");
-        append("<body>").appendNewLine();
-        append("<h1>").append(title).appendWithNewLine("</h1>");
-        appendNewLine();
+        sb.append("<head><title>").append(title).append("</title></head>\n");
+        sb.append("<body>\n");
+        sb.append("<h1>").append(title).append("</h1>\n\n");
         return this;
     }
 
     @Override
     public Builder makeString(String str) {
-        append("<p>").append(str).appendWithNewLine("</p>");
-        appendNewLine();
+        sb.append("<p>").append(str).append("</p>\n\n");
         return this;
     }
 
     @Override
     public Builder makeItems(String... items) {
-        appendWithNewLine("<ul>");
+        sb.append("<ul>\n");
         for (String item : items) {
-            append("<li>").append(item).appendWithNewLine("</li>");
+            sb.append("<li>").append(item).append("</li>\n");
         }
-        appendWithNewLine("</ul>");
-        appendNewLine();
+        sb.append("</ul>\n\n");
         return this;
     }
 
     @Override
     public void close() {
-        appendWithNewLine("</body></html>");
+        sb.append("</body></html>\n");
     }
 
     public String getHTMLResult() {
-        return getResult();
+        return sb.toString();
     }
 }
