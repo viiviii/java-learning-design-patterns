@@ -7,11 +7,9 @@ import static java.util.Arrays.asList;
 
 public abstract class Page {
 
-    protected final List<Item> items = new ArrayList<>(); // todo
-
+    private final List<Item> contents = new ArrayList<>();
 
     protected final String title;
-
     protected final String author;
 
     protected Page(String title, String author) {
@@ -20,7 +18,11 @@ public abstract class Page {
     }
 
     public final void add(Item... item) {
-        items.addAll(asList(item));
+        contents.addAll(asList(item));
+    }
+
+    public final List<Item> getContents() {
+        return new ArrayList<>(contents);
     }
 
     public final void output(String name) {

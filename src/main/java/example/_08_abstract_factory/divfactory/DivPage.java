@@ -6,8 +6,7 @@ import example._08_abstract_factory.factory.Page;
 class DivPage extends Page {
 
     private final StringBuilder sb = new StringBuilder();
-
-
+    
     public DivPage(String title, String author) {
         super(title, author);
     }
@@ -15,7 +14,7 @@ class DivPage extends Page {
     @Override
     public String makeHTML() {
         appendTitle();
-        appendItems();
+        appendContents();
         appendAuthor();
         return sb.toString();
     }
@@ -31,8 +30,8 @@ class DivPage extends Page {
                 <h1>""").append(title).append("</h1>\n");
     }
 
-    private void appendItems() {
-        for (Item item : items) {
+    private void appendContents() {
+        for (Item item : getContents()) {
             sb.append(item.makeHTML());
         }
     }

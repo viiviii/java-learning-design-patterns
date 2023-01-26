@@ -14,7 +14,7 @@ class ListPage extends Page {
     @Override
     public String makeHTML() {
         appendTitle();
-        appendItems();
+        appendContents();
         appendAuthor();
         return sb.toString();
     }
@@ -28,10 +28,10 @@ class ListPage extends Page {
                 <h1>""").append(title).append("</h1>\n");
     }
 
-    private void appendItems() {
+    private void appendContents() {
         sb.append("<ul>\n");
-        for (Item item : items) {
-            sb.append(item.makeHTML());
+        for (Item content : getContents()) {
+            sb.append(content.makeHTML());
         }
         sb.append("</ul>\n");
     }
