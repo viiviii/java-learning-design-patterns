@@ -20,5 +20,9 @@ public abstract class Factory {
 
     public abstract Page createPage(String title, String author);
 
-    public abstract Page createNaverPage();
+    public Page createNaverPage() {
+        final var page = createPage("Naver", "Naver");
+        page.add(createLink("Naver", "https://www.naver.com/"));
+        return page;
+    }
 }

@@ -21,11 +21,4 @@ public class ListFactory extends Factory {
     public Page createPage(String title, String author) {
         return new ListPage(title, author);
     }
-
-    @Override
-    public Page createNaverPage() {
-        final var page = new ListPage("Naver", "Naver");
-        page.add(createLink("Naver", "https://www.naver.com/"));
-        return page;
-    }
 }
