@@ -8,15 +8,16 @@ import example._08_abstract_factory.factory.Tray;
 class Main {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Usage: java Main [list | div]]");
-            System.out.println("Example 1: java Main list");
-            System.out.println("Example 2: java Main div");
+            System.out.println("Usage: class.name.of.ConcreteFactory");
+            System.out.println("Example 1: listfactory.ListFactory");
+            System.out.println("Example 2: divfactory.DivFactory");
             System.exit(0);
         }
 
         String name = args[0];
+        String packageRoot = Main.class.getPackage().getName();
 
-        Factory factory = Factory.getFactory(name);
+        Factory factory = Factory.getFactory(packageRoot + "." + name);
 
         // Blog Site
         Item blog1 = factory.createLink("Blog 1", "https://example.com/blog1");
@@ -27,7 +28,7 @@ class Main {
         blogTray.add(blog1, blog2, blog3);
 
         // News Site
-        Item news1 = factory.createLink("N:wqews 1", "https://example.com/news1");
+        Item news1 = factory.createLink("News 1", "https://example.com/news1");
         Item news2 = factory.createLink("News 2", "https://example.com/news2");
 
         Item news3us = factory.createLink("News 3 (US)", "https://example.com/news3us");

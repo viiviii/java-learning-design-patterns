@@ -11,7 +11,7 @@ class MainTest extends MainMethodTest {
     @Test
     void outputList() {
         //when
-        runMain(array("list"));
+        runMain(array("listfactory.ListFactory"));
 
         //then
         assertThat(output()).isEqualTo("""
@@ -47,7 +47,7 @@ class MainTest extends MainMethodTest {
     @Test
     void outputDiv() {
         //when
-        runMain(array("div"));
+        runMain(array("divfactory.DivFactory"));
 
         //then
         assertThat(output()).isEqualTo("""
