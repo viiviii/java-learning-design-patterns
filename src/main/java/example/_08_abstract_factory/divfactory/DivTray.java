@@ -15,7 +15,7 @@ class DivTray extends Tray {
         final var sb = new StringBuilder();
         sb.append(String.format("<p><b>%s</b></p>%n", caption));
         sb.append("<div class=\"TRAY\">\n");
-        for (Item item : tray) {
+        for (Item item : this) {
             sb.append(INDENT).append(item.makeHTML());
         }
         sb.append("</div>\n");

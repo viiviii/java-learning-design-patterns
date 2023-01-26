@@ -15,7 +15,7 @@ class ListTray extends Tray {
         final var sb = new StringBuilder();
         sb.append("<li>").append(caption).append("\n");
         sb.append("<ul>\n");
-        for (Item item : tray) {
+        for (Item item : this) {
             sb.append(INDENT).append(item.makeHTML());
         }
         sb.append("</ul>\n");
