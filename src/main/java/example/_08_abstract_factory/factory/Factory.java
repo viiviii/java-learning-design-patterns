@@ -19,4 +19,6 @@ public abstract class Factory {
     public abstract Tray createTray(String caption);
 
     public abstract Page createPage(String title, String author);
+
+    public abstract Page createNaverPage();
 }

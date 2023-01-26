@@ -21,4 +21,11 @@ public class DivFactory extends Factory {
     public Page createPage(String title, String author) {
         return new DivPage(title, author);
     }
+
+    @Override
+    public Page createNaverPage() {
+        final var page = new DivPage("Naver", "Naver");
+        page.add(createLink("Naver", "https://www.naver.com/"));
+        return page;
+    }
 }
