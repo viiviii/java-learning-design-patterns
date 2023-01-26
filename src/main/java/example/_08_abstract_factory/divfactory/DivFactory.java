@@ -8,8 +8,8 @@ import example._08_abstract_factory.factory.Tray;
 public class DivFactory extends Factory {
 
     @Override
-    public Page createPage(String title, String author) {
-        return new DivPage(title, author);
+    public Link createLink(String caption, String url) {
+        return new DivLink(caption, url);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class DivFactory extends Factory {
     }
 
     @Override
-    public Link createLink(String caption, String url) {
-        return new DivLink(caption, url);
+    public Page createPage(String title, String author) {
+        return new DivPage(title, author);
     }
 }

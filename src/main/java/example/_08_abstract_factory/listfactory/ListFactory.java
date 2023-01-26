@@ -8,8 +8,8 @@ import example._08_abstract_factory.factory.Tray;
 public class ListFactory extends Factory {
 
     @Override
-    public Page createPage(String title, String author) {
-        return new ListPage(title, author);
+    public Link createLink(String caption, String url) {
+        return new ListLink(caption, url);
     }
 
     @Override
@@ -18,7 +18,7 @@ public class ListFactory extends Factory {
     }
 
     @Override
-    public Link createLink(String caption, String url) {
-        return new ListLink(caption, url);
+    public Page createPage(String title, String author) {
+        return new ListPage(title, author);
     }
 }

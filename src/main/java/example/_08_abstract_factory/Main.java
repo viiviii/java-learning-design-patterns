@@ -19,28 +19,29 @@ class Main {
         Factory factory = Factory.getFactory(name);
 
         // Blog Site
-        Tray blogTray = factory.createTray("Blog Site");
-        Item blogLink1 = factory.createLink("Blog 1", "https://example.com/blog1");
-        Item blogLink2 = factory.createLink("Blog 2", "https://example.com/blog2");
-        Item blogLink3 = factory.createLink("Blog 3", "https://example.com/blog3");
+        Item blog1 = factory.createLink("Blog 1", "https://example.com/blog1");
+        Item blog2 = factory.createLink("Blog 2", "https://example.com/blog2");
+        Item blog3 = factory.createLink("Blog 3", "https://example.com/blog3");
 
-        blogTray.add(blogLink1, blogLink2, blogLink3);
+        Tray blogTray = factory.createTray("Blog Site");
+        blogTray.add(blog1, blog2, blog3);
 
         // News Site
-        Tray newsTray = factory.createTray("News Site");
-        Item news1 = factory.createLink("News 1", "https://example.com/news1");
+        Item news1 = factory.createLink("N:wqews 1", "https://example.com/news1");
         Item news2 = factory.createLink("News 2", "https://example.com/news2");
 
-        Tray news3 = factory.createTray("News 3");
         Item news3us = factory.createLink("News 3 (US)", "https://example.com/news3us");
         Item news3kr = factory.createLink("News 3 (Korea)", "https://example.com/news3kr");
+        Tray news3 = factory.createTray("News 3");
         news3.add(news3us, news3kr);
 
+        Tray newsTray = factory.createTray("News Site");
         newsTray.add(news1, news2, news3);
 
         // Page
         Page page = factory.createPage("Blog and News", "Youngjin.com");
         page.add(blogTray, newsTray);
+
         page.output(name);
     }
 }

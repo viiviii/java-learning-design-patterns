@@ -16,9 +16,9 @@ public abstract class Factory {
         throw new IllegalArgumentException();
     }
 
-    public abstract Page createPage(String title, String author);
+    public abstract Link createLink(String caption, String url);
 
     public abstract Tray createTray(String caption);
 
-    public abstract Link createLink(String caption, String url);
+    public abstract Page createPage(String title, String author);
 }
