@@ -6,7 +6,7 @@ import example._08_abstract_factory.factory.Page;
 class DivPage extends Page {
 
     private final StringBuilder sb = new StringBuilder();
-    
+
     public DivPage(String title, String author) {
         super(title, author);
     }
@@ -16,6 +16,7 @@ class DivPage extends Page {
         appendTitle();
         appendContents();
         appendAuthor();
+        
         return sb.toString();
     }
 

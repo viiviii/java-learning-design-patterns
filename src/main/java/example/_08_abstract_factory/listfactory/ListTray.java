@@ -13,6 +13,7 @@ class ListTray extends Tray {
     public String makeHTML() {
         final var INDENT = "  ";
         final var sb = new StringBuilder();
+
         sb.append("<li>").append(caption).append("\n");
         sb.append("<ul>\n");
         for (Item item : this) {
@@ -20,6 +21,7 @@ class ListTray extends Tray {
         }
         sb.append("</ul>\n");
         sb.append("</li>\n");
+
         return sb.toString();
     }
 }

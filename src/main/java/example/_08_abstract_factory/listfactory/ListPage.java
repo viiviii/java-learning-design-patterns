@@ -16,6 +16,7 @@ class ListPage extends Page {
         appendTitle();
         appendContents();
         appendAuthor();
+        
         return sb.toString();
     }
 
