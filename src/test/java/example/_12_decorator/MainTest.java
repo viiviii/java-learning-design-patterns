@@ -9,15 +9,16 @@ class MainTest extends MainMethodTest {
 
     @Test
     void decorator() {
-        //given
-
         //when
         runMain();
 
         //then
         assertThat(output()).isEqualTo("""
                 Hello, world.
-                #Hello, world.#""");
+                #Hello, world.#
+                +---------------+
+                |#Hello, world.#|
+                +---------------+""");
     }
 
 
