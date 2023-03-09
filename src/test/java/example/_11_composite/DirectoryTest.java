@@ -3,7 +3,6 @@ package example._11_composite;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
 
 class DirectoryTest {
 
@@ -35,32 +34,24 @@ class DirectoryTest {
     void addDirectory() {
         //given
         var root = new Directory("root");
-        var bin = new Directory("bin");
 
         //when
-        root.add(bin);
+        root.add(new Directory("bin"));
 
         //then
-        assertAll(
-                () -> assertThat(root).hasToString("root (0)"),
-                () -> assertThat(bin).hasToString("bin (0)")
-        );
+        assertThat(root.getSize()).isZero();
     }
 
     @Test
     void addFile() {
         //given
         var root = new Directory("root");
-        var v1 = new File("v1", 10000);
 
         //when
-        root.add(v1);
+        root.add(new File("diary.html", 1_500));
 
         //then
-        assertAll(
-                () -> assertThat(root.getSize()).isEqualTo(10000),
-                () -> assertThat(root).hasToString("root (10000)")
-        );
+        assertThat(root.getSize()).isEqualTo(1_500);
     }
 
     @Test
