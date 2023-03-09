@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Directory extends Entry {
+
+    private final String name;
     private final List<Entry> children = new ArrayList<>();
 
-    Directory(String name) {
-        super(name, 0);
+    public Directory(String name) {
+        this.name = name;
+    }
+
+    public void add(Entry child) {
+        children.add(child);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -24,10 +35,6 @@ class Directory extends Entry {
         for (Entry child : children) {
             child.printList(prefix + "/" + getName());
         }
-    }
-
-    public void add(Entry child) {
-        children.add(child);
     }
 }
 
