@@ -2,8 +2,10 @@ package example._12_decorator;
 
 class Main {
     public static void main(String[] args) {
-        Display b1 = new Display("Hello, world.");
+        Display b1 = new StringDisplay("Hello, world.");
+        Display b2 = new SideBorder(b1, '#');
 
         b1.show();
+        b2.show();
     }
 }

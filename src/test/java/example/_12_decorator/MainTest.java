@@ -16,7 +16,8 @@ class MainTest extends MainMethodTest {
 
         //then
         assertThat(output()).isEqualTo("""
-                Hello, world.""");
+                Hello, world.
+                #Hello, world.#""");
     }
 
 

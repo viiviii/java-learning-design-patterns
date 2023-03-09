@@ -1,13 +1,10 @@
 package example._12_decorator;
 
-class Display {
-    private final String s;
-
-    public Display(String s) {
-        this.s = s;
-    }
+abstract class Display {
 
     public void show() {
-        System.out.println(s);
+        System.out.println(getMessage());
     }
+
+    protected abstract String getMessage();
 }
