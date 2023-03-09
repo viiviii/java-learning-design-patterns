@@ -5,10 +5,13 @@ class Main {
         System.out.println("Making root entries...");
         Directory root = new Directory("root");
         Directory bin = new Directory("bin");
-        File v1 = new File("v1", 10000);
+        Directory tmp = new Directory("tmp");
 
         root.add(bin);
-        bin.add(v1);
+        bin.add(new File("v1", 10000));
+        bin.add(new File("latex", 20000));
+
+        root.add(tmp);
 
         root.printList();
     }

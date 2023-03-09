@@ -15,9 +15,11 @@ class MainTest extends MainMethodTest {
         //then
         assertThat(output()).isEqualTo("""
                 Making root entries...
-                /root (10000)
-                /root/bin (10000)
-                /root/bin/v1 (10000)"""
+                /root (30000)
+                /root/bin (30000)
+                /root/bin/v1 (10000)
+                /root/bin/latex (20000)
+                /root/tmp (0)"""
         );
     }
 
