@@ -9,5 +9,21 @@ class Main {
         b1.show();
         b2.show();
         b3.show();
+
+        System.out.println();
+
+        Display b4 =
+                new SideBorder(
+                        new FullBorder(
+                                new FullBorder(
+                                        new SideBorder(
+                                                new FullBorder(new StringDisplay("Hello, world.")),
+                                                '*'
+                                        )
+                                )
+                        ),
+                        '/'
+                );
+        b4.show();
     }
 }

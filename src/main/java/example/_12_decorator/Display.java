@@ -1,10 +1,14 @@
 package example._12_decorator;
 
+import java.util.List;
+
 abstract class Display {
 
     public void show() {
-        System.out.println(getMessage());
+        for (var line : getLines()) {
+            System.out.println(line);
+        }
     }
 
-    protected abstract String getMessage();
+    protected abstract List<String> getLines();
 }

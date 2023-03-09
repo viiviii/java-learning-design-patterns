@@ -1,5 +1,7 @@
 package example._12_decorator;
 
+import java.util.List;
+
 class StringDisplay extends Display {
     private final String s;
 
@@ -8,7 +10,7 @@ class StringDisplay extends Display {
     }
 
     @Override
-    protected String getMessage() {
-        return s;
+    protected List<String> getLines() {
+        return List.of(s);
     }
 }

@@ -1,5 +1,8 @@
 package example._12_decorator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FullBorder extends Display {
     private final Display display;
 
@@ -8,19 +11,19 @@ public class FullBorder extends Display {
     }
 
     @Override
-    public void show() {
-        showLine();
-        super.show();
-        showLine();
+    protected List<String> getLines() {
+        final var lines = new ArrayList<String>();
+
+        lines.add(openAndCloseLine());
+        for (String line : display.getLines()) {
+            lines.add("|" + line + "|");
+        }
+        lines.add(openAndCloseLine());
+
+        return lines;
     }
 
-    private void showLine() {
-        var line = "+" + "-".repeat(display.getMessage().length()) + "+";
-        System.out.println(line);
-    }
-
-    @Override
-    protected String getMessage() {
-        return "|" + display.getMessage() + "|";
+    private String openAndCloseLine() {
+        return "+" + "-".repeat(display.getLines().get(0).length()) + "+"; // TODO
     }
 }

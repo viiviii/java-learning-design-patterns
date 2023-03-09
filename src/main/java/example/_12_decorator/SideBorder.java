@@ -1,5 +1,8 @@
 package example._12_decorator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SideBorder extends Display {
     private final Display display;
     private final char border;
@@ -10,7 +13,13 @@ public class SideBorder extends Display {
     }
 
     @Override
-    protected String getMessage() {
-        return border + display.getMessage() + border;
+    protected List<String> getLines() {
+        final var lines = new ArrayList<String>();
+
+        for (String line : display.getLines()) {
+            lines.add(border + line + border);
+        }
+
+        return lines;
     }
 }
