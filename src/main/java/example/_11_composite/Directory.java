@@ -20,17 +20,19 @@ class Directory {
     }
 
     public void printList() {
-        String prefix = "";
+        final var prefix = new StringBuilder();
 
-        prefix += "/";
-        System.out.println(prefix + this);
-        prefix += this.getName();
+        printList(prefix, this);
 
         for (Directory child : children) {
-            prefix += "/";
-            System.out.println(prefix + child);
-            prefix += child.getName();
+            printList(prefix, child);
         }
+    }
+
+    private void printList(StringBuilder prefix, Directory directory) {
+        prefix.append("/");
+        System.out.println(prefix.toString() + directory);
+        prefix.append(directory.getName());
     }
 
     public void add(Directory child) {
