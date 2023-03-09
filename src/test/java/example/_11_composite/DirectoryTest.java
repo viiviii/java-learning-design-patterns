@@ -32,7 +32,7 @@ class DirectoryTest {
     }
 
     @Test
-    void add() {
+    void addDirectory() {
         //given
         var root = new Directory("root");
         var bin = new Directory("bin");
@@ -44,6 +44,22 @@ class DirectoryTest {
         assertAll(
                 () -> assertThat(root).hasToString("root (0)"),
                 () -> assertThat(bin).hasToString("bin (0)")
+        );
+    }
+
+    @Test
+    void addFile() {
+        //given
+        var root = new Directory("root");
+        var v1 = new File("v1", 10000);
+
+        //when
+        root.add(v1);
+
+        //then
+        assertAll(
+                () -> assertThat(root.getSize()).isEqualTo(10000),
+                () -> assertThat(root).hasToString("root (10000)")
         );
     }
 

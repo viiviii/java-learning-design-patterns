@@ -3,44 +3,33 @@ package example._11_composite;
 import java.util.ArrayList;
 import java.util.List;
 
-class Directory {
-    private final String name;
-    private final List<Directory> children = new ArrayList<>();
+class Directory extends Entry {
+    private final List<Entry> children = new ArrayList<>();
 
     Directory(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public int getSize() {
-        return 0;
-    }
-
-    public void printList() {
-        final var prefix = new StringBuilder();
-
-        printList(prefix, this);
-
-        for (Directory child : children) {
-            printList(prefix, child);
-        }
-    }
-
-    private void printList(StringBuilder prefix, Directory directory) {
-        prefix.append("/");
-        System.out.println(prefix.toString() + directory);
-        prefix.append(directory.getName());
-    }
-
-    public void add(Directory child) {
-        children.add(child);
+        super(name, 0);
     }
 
     @Override
-    public String toString() {
-        return String.format("%s (%d)", getName(), getSize());
+    public int getSize() {
+        return children.stream()
+                .mapToInt(Entry::getSize)
+                .sum();
+    }
+
+    @Override
+    protected void printList(StringBuilder prefix) {
+        System.out.println(prefix + "/" + this);
+
+        prefix.append("/").append(getName());
+
+        for (Entry child : children) {
+            child.printList(prefix);
+        }
+    }
+
+    public void add(Entry child) {
+        children.add(child);
     }
 }
+
