@@ -7,7 +7,7 @@ class File extends Entry {
     }
 
     @Override
-    protected void printList(StringBuilder prefix) {
+    protected void printList(String prefix) {
         System.out.println(prefix + "/" + this);
     }
 }

@@ -18,11 +18,10 @@ abstract class Entry {
     }
 
     public final void printList() {
-        final var prefix = new StringBuilder();
-        printList(prefix);
+        printList("");
     }
 
-    protected abstract void printList(StringBuilder prefix);
+    protected abstract void printList(String prefix);
 
     @Override
     public String toString() {

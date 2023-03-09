@@ -18,13 +18,11 @@ class Directory extends Entry {
     }
 
     @Override
-    protected void printList(StringBuilder prefix) {
+    protected void printList(String prefix) {
         System.out.println(prefix + "/" + this);
 
-        prefix.append("/").append(getName());
-
         for (Entry child : children) {
-            child.printList(prefix);
+            child.printList(prefix + "/" + getName());
         }
     }
 
