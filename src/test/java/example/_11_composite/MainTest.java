@@ -19,7 +19,24 @@ class MainTest extends MainMethodTest {
                 /root/bin (30000)
                 /root/bin/v1 (10000)
                 /root/bin/latex (20000)
-                /root/tmp (0)"""
+                /root/tmp (0)
+                /root/usr (0)
+                                
+                Making user entries...
+                /root (31500)
+                /root/bin (30000)
+                /root/bin/v1 (10000)
+                /root/bin/latex (20000)
+                /root/tmp (0)
+                /root/usr (1500)
+                /root/usr/youngjin (300)
+                /root/usr/youngjin/diary.html (100)
+                /root/usr/youngjin/Composite.java (200)
+                /root/usr/gildong (300)
+                /root/usr/gildong/memo.tex (300)
+                /root/usr/dojun (900)
+                /root/usr/dojun/game.doc (400)
+                /root/usr/dojun/junk.mail (500)"""
         );
     }
 
